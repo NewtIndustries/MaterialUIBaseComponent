@@ -1,6 +1,6 @@
 {
   "name": "materialuibasecomponent",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Typescript Base Class for Material-UI Styled/Themed React Components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyledComponentProps, withStyles, withTheme } from '@material-ui/core';
-import { WrappedStyledComponentBase } from './WrappedStyledComponentBase';
-import { IStyledComponentBasePropBase, IStyledComponentBaseStateBase } from '../models/StyledComponentBaseModels';
+import { StyledComponentBaseMixin, IStyledComponentBasePropBase, IStyledComponentBaseStateBase } from '../models/StyledComponentBaseModels';
+import { IWrappedStyledComponentProps, IWrappedStyledComponentState } from '../models/WrappedComponentBaseModels';
 
 
 
@@ -43,5 +43,32 @@ export class StyledComponentBase<T, S, SS> extends React.Component<T & IStyledCo
 		this.setState({
 			value: state
 		});
+	}
+}
+
+
+export class WrappedStyledComponentBase<T> extends StyledComponentBase<StyledComponentBaseMixin & IWrappedStyledComponentProps<T>, IWrappedStyledComponentState, any> implements React.ComponentSpec<any, any> {
+	constructor(props: StyledComponentBaseMixin & IWrappedStyledComponentProps<T>, context: IWrappedStyledComponentState) {
+		super(props, context);
+		this.state = {
+			...this.state,
+			value: {
+				getContent: context.getContent,
+				wrappingComponent: context.wrappingComponent
+			}
+		};
+	}
+	public render(): React.ReactNode | null {
+		const { value, Context } = this.state;
+		const { getContent, wrappingComponent } = value;
+
+		if (getContent && Context) {
+			return (
+			<Context.Consumer>
+				{getContent.bind(wrappingComponent, this.props.classes)}
+			</Context.Consumer>
+			);
+		}
+		return null;
 	}
 }
