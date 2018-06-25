@@ -1,0 +1,40 @@
+{
+  "name": "materialuibasecomponent",
+  "version": "0.0.1",
+  "description": "Typescript Base Class for Material-UI Styled/Themed React Components",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "install": "tsc",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NewtIndustries/MaterialUIBaseComponent.git"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "material-ui",
+    "withStyles",
+    "withTheme",
+    "component",
+    "base"
+  ],
+  "author": "Newt Industries <info@newtindustries.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NewtIndustries/MaterialUIBaseComponent/issues"
+  },
+  "homepage": "https://github.com/NewtIndustries/MaterialUIBaseComponent#readme",
+  "dependencies": {
+    "@material-ui/core": "^1.2.3"
+  },
+  "devDependencies": {
+    "typescript": "^2.8.3"
+  }
+}
