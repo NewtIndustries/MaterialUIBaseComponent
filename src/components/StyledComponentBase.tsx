@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { StyledComponentProps, withStyles, withTheme } from '@material-ui/core';
-import { WrappedStyledComponent } from './WrappedComponentBase';
+import { WrappedStyledComponentBase } from './WrappedStyledComponentBase';
 import { IStyledComponentBasePropBase, IStyledComponentBaseStateBase } from '../models/StyledComponentBaseModels';
-import { IWrappedStyledComponentState } from '../models/WrappedComponentBaseModels';
 
 
 
@@ -38,7 +37,7 @@ export class StyledComponentBase<T, S, SS> extends React.Component<T & IStyledCo
 		return null;
 	}
 	private getWrappedClassType():  React.ComponentClass<StyledComponentProps<never>> {
-		return withTheme()(withStyles(this.getStyles() || {})(WrappedStyledComponent));
+		return withTheme()(withStyles(this.getStyles() || {})(WrappedStyledComponentBase));
 	}
 	private setContext = (state: S) => {
 		this.setState({
