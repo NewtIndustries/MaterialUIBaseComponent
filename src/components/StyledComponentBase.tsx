@@ -19,7 +19,7 @@ export class StyledComponentBase<T, S, SS> extends React.Component<T & IStyledCo
 			setContext: this.setContext
 		}
 	}
-	public render(): React.ReactNode | null {
+	public render(): React.ReactNode {
 		const { classes, theme, ...rest } = this.props as any;
 		const { Context, value, WrappedClassType } = this.state;
 		const WrappedClassInstance = <WrappedClassType wrappingComponent={this} {...rest} />;

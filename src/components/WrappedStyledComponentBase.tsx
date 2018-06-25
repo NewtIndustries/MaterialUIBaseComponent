@@ -15,7 +15,7 @@ export class WrappedStyledComponentBase<T> extends StyledComponentBase<StyledCom
 			}
 		};
 	}
-	public render(): React.ReactNode | null {
+	public render(): React.ReactNode {
 		const { value, Context } = this.state;
 		const { getContent, wrappingComponent } = value;
 
