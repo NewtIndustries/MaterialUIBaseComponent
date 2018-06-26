@@ -22,7 +22,7 @@ export class StyledComponentBase<T, S, SS> extends React.Component<T & IStyledCo
 	public render(): React.ReactNode {
 		const { classes, theme, ...rest } = this.props as any;
 		const { Context, value, WrappedClassType } = this.state;
-		const WrappedClassInstance = <WrappedClassType {...rest} />;
+		const WrappedClassInstance = <WrappedClassType classes={classes} theme={theme} {...rest} />;
 		return (
 			<Context.Provider value={value}>
 				{WrappedClassInstance}
